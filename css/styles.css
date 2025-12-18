@@ -1,210 +1,312 @@
-body{
-    display: grid;
-    min-height: 100dvh;
-    grid-template-rows: auto 1fr auto;
-    background: linear-gradient(#B8D6D4,transparent);   
-    gap: 1rem; 
-    font-family: "Google Sans", sans-serif;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-header{   
+body{
+    font-family: "Google Sans", sans-serif;
+    background: linear-gradient(#B8D6D4, #ffffff);
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+/* HEADER */
+.header{
     display: flex;
-    gap: 1rem;
+    justify-content: space-between;
     align-items: center;
+    padding: 1.5rem 3rem;
 }
 
 .logo-marca{
     display: flex;
     align-items: center;
+    gap: 1rem;
+}
+
+.logo-marca img{
+    width: 70px;
+}
+
+.barra-navegacion{
+    display: flex;
     gap: 2rem;
-    font-size: 30px;
-    padding-left: 3rem;
 }
 
-.Barra_navegacion{
-    display: flex;   
-    background-color: #9abdc0; 
-    gap: 7.3rem;
-    margin-left: 10%;   
-    padding: 0 15rem;
-    border-radius: 15px;    
-}
-
-.Barra_navegacion a{
+.barra-navegacion a{
     text-decoration: none;
-    color: black;
+    color: #000;
+    font-weight: 500;
 }
 
-main{
+/* LAYOUT PRINCIPAL */
+.layout{
     display: grid;
-    grid-template-columns: repeat(3, 1fr); 
-    grid-template-rows: 1fr 1fr;
-    gap: 2rem;   
-    margin: 0 12rem 0 12rem;
-    
+    gap: 4rem;
+    padding: 3rem;
 }
 
-.card{
-    /* width: 250px;
-    height: 250px; */
-    perspective: 1000px;
-    background-color: #9abdc0;
+/* CURSO DESTACADO */
+/* .curso-destacado{
+    display: flex;
+    gap: 3rem;
+    background: #ffffff;
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.curso-imagen img{
+    width: 280px;
+    border-radius: 15px;
+}
+
+.curso-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+}*/
+/* CONTENEDOR GENERAL */
+.curso-flip{
+    display: flex;
+    justify-content: center;
+}
+
+/* TARJETA */
+.flip-card{
+    width: 320px;
+    height: 420px;
+    perspective: 1200px;    
+}
+
+/* ELEMENTO QUE GIRA */
+.flip-inner{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform 0.8s ease;
+    transform-style: preserve-3d;    
+}
+
+/* ACTIVADOR DEL GIRO */
+.flip-card:hover .flip-inner{
+    transform: rotateY(180deg);
+}
+
+/* CARAS */
+.flip-front,
+.flip-back{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.286);
     padding: 2rem;
-    border-radius: 5px;
-    
-   
-}
-
-.card-inner {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  transition: transform 0.8s;
-  transform-style: preserve-3d;
-}
-
-.card:hover .card-inner {
-  transform: rotateY(180deg);
-}
-
-.card-front, .card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden; /* Oculta la cara trasera */
-  border-radius: 10px;
-  overflow: hidden;
-}
-
-.card-front img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;  
-}
-
-.card-back {
-  background: #2c3e50;
-  color: white;
-  transform: rotateY(180deg);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;  
-}
-
-/* .card-back p,
-.card-back h2,
-.card-back h3{
-    margin: 0.5rem;
-} */
-
-.card-back a{
-    color: aliceblue;
-    font-size: 12px;
-    text-decoration: none;
-    gap: 10px;
-}
-
-.carrito-python{
-    width: 35px;
-    height: 35px;
-    padding-top: 30px;
-    background-color: #9abdc0;
-    border-radius: 50px;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-}
-.caracter-funcion{
-    display: wrap;
-    border-radius: 15px;
-    background-color: #2c3e50;
- /*    width: 500px;
-    height: 420px */;
-    box-shadow: 0 0 15px #010b14; 
-    padding-top: 9rem; 
- 
-}
-
-.card-caracteristicas{
-    background-color: #B8D6D4;
-    margin: 15px;
-    text-align: center;
-    border-radius: 15px;
-    padding: 10px;
-}
-.card-caracteristicas:hover{
-    transform: translateY(-5px);
-}
-
-.card-funcion{
-    background-color: #B8D6D4;
-    margin: 15px;
-    text-align: center;
-    border-radius: 15px;
-    padding: 10px;    
-}
-.card-funcion:hover{
-    transform: translateY(5px);
-}
-
-ul{ 
-    list-style: none;
-}
-.card-planes{
-    display: wrap;
-    border-radius: 15px;
-    background-color: #2c3e50;
-   /*  width: 500px;
-    height: 470px; */
-    box-shadow: 0 0 15px #010b14;
-    grid-column: 3/4;
-    grid-row: 1/3;
-    padding-top: 20rem;
-    gap: 10rem;
-}
-.card-plan_Premium, 
-.card-plan_Semestral{
-    background-color: #B8D6D4;
-    margin: 15px;
-    border-radius: 4px; 
-    padding: 0.5px;   
-}
-.card-plan_Premium,
-.card-plan_Semestral h2 {
+    justify-content: center;
     text-align: center;    
 }
-.card-precios{
+
+/* FRENTE */
+.flip-front{
+    background: #b6c0c1;
+}
+
+.flip-front img{
+    width: 180px;
+    border-radius: 15px;
+    margin-bottom: 1rem;
+}
+
+/* ATRÁS */
+.flip-back{
+    background: #2c3e50;
+    color: white;
+    transform: rotateY(180deg);
+}
+
+.flip-back ul{
+    list-style: none;
+    margin: 1rem 0;
+}
+
+.flip-back li{
+    margin-bottom: 0.5rem;
+}
+/*CARRITO*/
+.card-actions{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.icon-cart{
+    background: #9abdc0;
+    padding: 0.6rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-cart img{
+    width: 22px;
+    height: 22px;
+}
+
+
+/* BOTÓN */
+.btn-primario{
     background-color: #2c3e50;
-    border-radius: 20px;  
-    padding-top: 90px; 
+    color: white;
+    padding: 0.8rem 1.6rem;
+    border-radius: 30px;
+    text-decoration: none;
+    width: fit-content;
 }
-.card-precio_Premium,
-.card-precio_Semestral{
-    background-color: #9abdc0;
-    border-radius: 50px;
+
+/* INFO GRID */
+.info-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+}
+
+.info-card{
+    background: #6c99997d;
+    padding: 2rem;
+    border-radius: 18px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.info-card ul{
+    list-style: none;
+    margin-top: 1rem;
+}
+
+/* PLANES */
+ul{
+    list-style: none;
+}
+.planes-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+}
+
+.plan-card{
+    background: #5b999074;
+    padding: 2rem;
+    border-radius: 20px;
     text-align: center;
-    padding: 2px;
-    margin: 2rem;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.1);    
 }
-.carrito-premium,
-.carrito-semestral{
-    width: 40px;
-    height: 40px;
+
+.plan-card.destacado{
+    border: 3px solid #2c3e50;
 }
-.card-testimonios{
-    background-color: #2c3e50;
-    border-radius: 20px;  
-    padding-top: 90px;
+
+.precio{
+    font-size: 2rem;
+    margin: 1rem 0;
+}
+.plan-actions{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+.icon-cart:hover{
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+.btn-primario:hover{
+    opacity: 0.9;
+}
+
+
+/* TESTIMONIOS */
+.testimonios{
     text-align: center;
-    padding-top: 50px;
-    
 }
-.card-testimonios h2{
-    color: antiquewhite;
+
+.testimonio-card{
+    max-width: 380px;
+    margin: 2rem auto;
+    background: #2c3e50;
+    color: white;
+    padding: 2rem;
+    border-radius: 20px;
 }
-.fot-juan{
-    width: 150px;
-    height: 150px;
-    border-radius: 30px;   
-    
+
+.testimonio-card img{
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #9abdc0;
+    margin-bottom: 1rem;
 }
+
+/* CTA FINAL */
+.cta-final{
+    background: #9abdc0;
+    padding: 3rem;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.cta-final p{
+    margin: 1rem 0;
+}
+
+/* FOOTER */
+.footer{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    background: #2c3e50;
+    color: white;
+    padding: 2.5rem;
+}
+
+.footer a{
+    color: white;
+    text-decoration: none;
+    display: block;
+    margin-top: 0.5rem;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px){
+    .curso-destacado{
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .curso-imagen img{
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    .btn-primario{
+        margin: 0 auto;
+    }
+}
+@media (max-width: 768px){
+    .card-actions,
+    .plan-actions{
+        flex-direction: column;
+    }
+}
+
